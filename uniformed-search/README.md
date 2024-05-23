@@ -9,6 +9,8 @@ To evaluate the performance of each search algorithm, we consider the following 
 - **Maximum Branching Factor (b)**: The maximum number of successors of any node.
 - **Depth of Least-Cost Solution (d)**: The depth at which the least-cost solution is found.
 - **Maximum Depth of State Space (m)**: The maximum depth of the search tree.
+## example
+![factors](https://github.com/mo7amedgom3a/Ai-Algorithms/blob/main/factors.png?raw=true)
 
 ## Algorithm Complexities
 
