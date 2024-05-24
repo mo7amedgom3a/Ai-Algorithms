@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import heapq
 from graph.WeightedGraph import create_weighted_graph
 from graph.UnWeightedGraph import create_unweighted_graph
 from  graph.visualize_weighted_graph import visualize_graph
@@ -8,7 +9,9 @@ from uniformed_search.Breadth_first_Search import bfs
 from uniformed_search.Depth_first_search import dfs
 from uniformed_search.Depth_limited_Search import dls
 from informed_search.Best_first_search import best_first_search
-from informed_search.heuristic import heuristic_values
+from informed_search.heuristic import *
+from informed_search.A_Star import a_star_search
+
 if __name__ == "__main__":
     weighted_graph = create_weighted_graph()
     visualize_graph(weighted_graph)
@@ -30,4 +33,8 @@ if __name__ == "__main__":
     path = best_first_search(weighted_graph, 'A', 'G', heuristic_values)
     print(path)
     algorithm = 'Best_First_Search'
+    draw_path_on_graph(weighted_graph, path, algorithm)
+    path = a_star_search(weighted_graph, 'A', 'E', heuristic_values)
+    print(path)
+    algorithm = 'A_Star'
     draw_path_on_graph(weighted_graph, path, algorithm)
