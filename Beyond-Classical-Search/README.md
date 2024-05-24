@@ -69,14 +69,13 @@ Genetic algorithms are population-based optimization algorithms inspired by the 
 #### Terminology
 
 - Population: The set of candidate solutions (chromosomes) in each generation.
-![population](https://static.javatpoint.com/tutorial/machine-learning/images/genetic-algorithm-in-machine-learning2.png)
+![population](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*JJ0vjBxiueGKvsBO.jpg)
 - Chromosomes: Candidate solutions represented as strings of genes.
 - Fitness Function: Evaluates the quality of a chromosome.
 - Selection: The process of selecting chromosomes for reproduction based on their fitness.
 - Crossover: The process of combining genetic material from two parent chromosomes to produce offspring.
-![crossover](https://static.javatpoint.com/tutorial/machine-learning/images/genetic-algorithm-in-machine-learning3.png)
 - Mutation: The process of introducing random changes into a chromosome to maintain diversity.
-![mutation](https://static.javatpoint.com/tutorial/machine-learning/images/genetic-algorithm-in-machine-learning4.png)
+![mutation](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*fsHvIZ8DxJSj43eK.png)
 
 ## Complexity Analysis and Properties
 
