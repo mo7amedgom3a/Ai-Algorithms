@@ -27,7 +27,7 @@ function genetic_algorithm(problem, population_size, mutation_rate, crossover_ra
     
     return get_best_solution(population)
 ```
-![]()
+![](https://github.com/mo7amedgom3a/Ai-Algorithms/blob/main/Beyond_Classical_Search/image%20copy.png?raw=true)
 ## Explanation
 - **Initialization**: Initialize a population of candidate solutions randomly.
 - **Evaluation**: Evaluate the fitness of each individual in the population using the objective function.
