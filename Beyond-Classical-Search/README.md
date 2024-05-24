@@ -1,74 +1,88 @@
-# Informed Search
+# Advanced Search Algorithms
 
-Informed search algorithms, also known as heuristic search algorithms, use problem-specific knowledge to find solutions more efficiently. These algorithms employ heuristics to estimate the cost of reaching the goal from a given state, guiding the search process towards the most promising paths.
+In this folder, you'll find implementations of advanced search algorithms that go beyond classical approaches. These algorithms are designed to tackle complex optimization problems and explore solution spaces more efficiently.
 
-## Terminology
+## Local Search
 
-- **Heuristic Function (h(n))**: A heuristic function estimates the cost of the cheapest path from node n to the goal. It provides guidance on which paths to follow, based on domain-specific knowledge.
-- **Path Cost (g(n))**: The path cost function g(n) represents the cost from the initial state to node n. It accumulates the costs of the actions taken to reach the current state.
-## example
-![hurastic](https://github.com/mo7amedgom3a/Ai-Algorithms/blob/main/hurastic.png?raw=true)
-## Factors for Measuring Complexity
+Local search algorithms focus on exploring the neighborhood of the current solution iteratively in search of a better solution. Unlike global search algorithms, which explore the entire search space, local search algorithms make decisions based solely on the quality of neighboring solutions.
 
-To evaluate the performance of each search algorithm, we consider the following factors:
+### Global Search vs. Local Search
 
-- **Maximum Branching Factor (b)**: The maximum number of successors of any node.
-- **Depth of Least-Cost Solution (d)**: The depth at which the least-cost solution is found.
-- **Maximum Depth of State Space (m)**: The maximum depth of the search tree.
-## example
-![factors](https://github.com/mo7amedgom3a/Ai-Algorithms/blob/main/factors.png?raw=true)
+Global search algorithms explore the entire search space systematically to find the optimal solution. In contrast, local search algorithms focus on improving the current solution iteratively by exploring its neighborhood.
+## Cost Function vs. Objective Function
 
-## Algorithm Complexities
+In optimization problems, the terms "cost function" and "objective function" are often used interchangeably, but they can have slightly different interpretations depending on the context.
 
-### Best-First Search
+### Objective Function
 
-- **Time Complexity**: O(b^m)
-- **Space Complexity**: O(b^m)
+The objective function, also known as the fitness function or evaluation function, quantifies the quality of a solution based on predefined criteria. It assigns a numerical value to each solution, indicating how well it satisfies the problem requirements or objectives. The goal of optimization algorithms is to find the solution(s) that maximize or minimize the objective function, depending on the problem type (maximization or minimization).
 
-**Overview**: Best-First Search uses a heuristic to prioritize which node to expand next. It selects the node that appears to be closest to the goal based on the heuristic value.
+### Cost Function
 
-- **Frontier**: A priority queue is used to keep track of the frontier nodes, ordered by their heuristic values.
-- **Traversal**: Expands the most promising node based on the heuristic evaluation.
+The cost function represents the actual cost associated with a solution. It measures the resources, time, or other constraints required to implement or execute the solution in a real-world scenario. The cost function is often used in practical optimization problems where minimizing resource usage or maximizing efficiency is the primary concern.
 
-**Properties**:
-- **Completeness**: No
-- **Optimality**: No
-## example
-![GBFS](https://i.redd.it/ak7iexdgnhs51.gif)
-### Greedy Best-First Search
+### Relationship to Global and Local Extrema
 
-- **Time Complexity**: O(b^m)
-- **Space Complexity**: O(b^m)
+The concepts of global maximum, local maximum, global minimum, and local minimum are related to both the objective function and the cost function.
 
-**Overview**: Greedy Best-First Search specifically uses a heuristic function to select the node that appears closest to the goal, ignoring the path cost.
+- **Global Maximum**: The highest value of the objective function in the entire search space. It represents the best possible solution(s) to the optimization problem.
+- **Local Maximum**: The highest value of the objective function in the neighborhood of a particular solution. Local maxima are points where the objective function is higher than its neighboring points but not necessarily the highest in the entire search space.
+- **Global Minimum**: The lowest value of the objective function in the entire search space. It represents the optimal solution(s) that satisfy the problem requirements.
+- **Local Minimum**: The lowest value of the objective function in the neighborhood of a particular solution. Local minima are points where the objective function is lower than its neighboring points but not necessarily the lowest in the entire search space.
 
-- **Frontier**: A priority queue is used to keep track of the frontier nodes, ordered by their heuristic values.
-- **Traversal**: Expands the node with the lowest heuristic value.
+### Relationship to Optimization Algorithms
 
-**Properties**:
-- **Completeness**: No
-- **Optimality**: No
-## example
-![GBFS](https://upload.wikimedia.org/wikipedia/commons/f/f9/Greedy-search-path.gif)
+- **Global Search Algorithms**: Global search algorithms aim to find the global maximum or minimum of the objective function by exploring the entire search space systematically. They are typically used when the problem space is small, and finding the optimal solution is crucial.
+- **Local Search Algorithms**: Local search algorithms focus on finding local maxima or minima by iteratively exploring the neighborhood of a particular solution. They are suitable for large, complex optimization problems where finding the global optimum is difficult or impractical.
+![objective-Vs-cost](https://qph.cf2.quoracdn.net/main-qimg-f4be1e3cd5dcab8d84fb3ccdee113049-lq)
+### Local Beam Search
 
-### A* Search
+Local beam search is a parallel variant of local search that maintains multiple candidate solutions, known as beams, in parallel. It starts with multiple initial solutions and iteratively explores their neighborhoods. It selects the best solutions from each iteration to form the next set of candidate solutions.
 
-- **Time Complexity**: O(b^d) (in the worst case)
-- **Space Complexity**: O(b^d)
+### Stochastic Beam Search
 
-**Overview**: A* Search combines the path cost and the heuristic to select the next node to expand. It uses the formula f(n) = g(n) + h(n), where g(n) is the cost to reach the node, and h(n) is the heuristic estimate of the cost to reach the goal from the node.
+Stochastic beam search is a variant of local beam search that introduces randomness into the selection process. Instead of selecting the best solutions deterministically, stochastic beam search randomly selects solutions from the set of candidate solutions, allowing it to explore a broader solution space.
 
-- **Frontier**: A priority queue is used to keep track of the frontier nodes, ordered by their f(n) values.
-- **Traversal**: Expands the node with the lowest f(n) value.
+### Hill-Climbing
 
-**Properties**:
-- **Completeness**: Yes (if the heuristic is admissible)
-- **Optimality**: Yes (if the heuristic is admissible and consistent)
-## example
-![GBFS](https://d2f0ora2gkri0g.cloudfront.net/40/f4/40f41f40-abb9-4d45-a476-62a7070f290e.gif)
+Hill-climbing is a simple local search algorithm that iteratively moves towards the best neighboring solution. At each iteration, it selects the neighboring solution with the highest objective function value and moves to it, assuming it is better than the current solution.
 
-## Conclusion
+#### Terminology
 
-Informed search algorithms leverage heuristics to improve search efficiency, guiding the search process towards the most promising paths. While they vary in their completeness and optimality, each algorithm has specific use cases and advantages. Understanding their complexities and traversal methods is crucial for selecting the appropriate algorithm for a given problem.
+- Objective Function: Evaluates the quality of a solution.
+- Cost Function: Another term for the objective function.
+- Global Maximum: The highest value of the objective function in the entire search space.
+- Local Maximum: The highest value of the objective function in the neighborhood of the current solution.
+- Local Minimum: The lowest value of the objective function in the neighborhood of the current solution.
+- Global Minimum: The lowest value of the objective function in the entire search space.
+- Flat: Refers to a region of the search space where the objective function values do not change significantly.
+- Shoulder: Refers to a region of the search space where the objective function values change abruptly.
+![Hill-Climbing](https://static.javatpoint.com/tutorial/ai/images/hill-climbing-algorithm-in-ai.png)
+### Simulated Annealing
 
-For detailed implementations and examples, refer to the respective folders for each algorithm in this directory.
+Simulated annealing is a probabilistic optimization algorithm inspired by the annealing process in metallurgy. It starts with an initial solution and iteratively explores neighboring solutions. Unlike hill-climbing, simulated annealing accepts Bad solutions with a certain probability, allowing it to escape local optima and explore a broader solution space and then he accept only Good Solutions after period time.
+
+### Genetic Algorithm
+
+Genetic algorithms are population-based optimization algorithms inspired by the process of natural selection and genetics. They maintain a population of candidate solutions, known as chromosomes, and iteratively evolve them through selection, crossover, and mutation operations. Genetic algorithms can efficiently explore large solution spaces and find near-optimal solutions in complex optimization problems.
+
+#### Terminology
+
+- Population: The set of candidate solutions (chromosomes) in each generation.
+![population](https://static.javatpoint.com/tutorial/machine-learning/images/genetic-algorithm-in-machine-learning2.png)
+- Chromosomes: Candidate solutions represented as strings of genes.
+- Fitness Function: Evaluates the quality of a chromosome.
+- Selection: The process of selecting chromosomes for reproduction based on their fitness.
+- Crossover: The process of combining genetic material from two parent chromosomes to produce offspring.
+![crossover](https://static.javatpoint.com/tutorial/machine-learning/images/genetic-algorithm-in-machine-learning3.png)
+- Mutation: The process of introducing random changes into a chromosome to maintain diversity.
+![mutation](https://static.javatpoint.com/tutorial/machine-learning/images/genetic-algorithm-in-machine-learning4.png)
+
+## Complexity Analysis and Properties
+
+- **Time Complexity**: The time complexity of each algorithm depends on various factors such as the problem size, search space structure, and algorithm parameters. In general, local search algorithms have lower time complexity compared to global search algorithms, but they may get stuck in local optima.
+- **Space Complexity**: The space complexity depends on the representation of solutions and the size of the search space. Population-based algorithms like genetic algorithms may require more memory due to the storage of multiple solutions in the population.
+- **Properties**: Each algorithm has its own set of properties, such as completeness, optimality, and scalability. Local search algorithms are generally incomplete and may find suboptimal solutions. Genetic algorithms are scalable and can handle large solution spaces but do not guarantee finding the optimal solution.
+
+For detailed implementation examples and further exploration, refer to the code in each algorithm's directory.
+

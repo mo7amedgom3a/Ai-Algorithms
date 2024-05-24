@@ -1,12 +1,13 @@
 # Informed Search
 
-Informed search algorithms, also known as **heuristic search algorithms**, use problem-specific knowledge to find solutions more efficiently. These algorithms employ heuristics to estimate the cost of reaching the goal from a given state, guiding the search process towards the most promising paths.
+Informed search algorithms, also known as heuristic search algorithms, use problem-specific knowledge to find solutions more efficiently. These algorithms employ heuristics to estimate the cost of reaching the goal from a given state, guiding the search process towards the most promising paths.
 
 ## Terminology
 
 - **Heuristic Function (h(n))**: A heuristic function estimates the cost of the cheapest path from node n to the goal. It provides guidance on which paths to follow, based on domain-specific knowledge.
 - **Path Cost (g(n))**: The path cost function g(n) represents the cost from the initial state to node n. It accumulates the costs of the actions taken to reach the current state.
-
+## example
+![hurastic](https://github.com/mo7amedgom3a/Ai-Algorithms/blob/main/hurastic.png?raw=true)
 ## Factors for Measuring Complexity
 
 To evaluate the performance of each search algorithm, we consider the following factors:
@@ -14,6 +15,8 @@ To evaluate the performance of each search algorithm, we consider the following 
 - **Maximum Branching Factor (b)**: The maximum number of successors of any node.
 - **Depth of Least-Cost Solution (d)**: The depth at which the least-cost solution is found.
 - **Maximum Depth of State Space (m)**: The maximum depth of the search tree.
+## example
+![factors](https://github.com/mo7amedgom3a/Ai-Algorithms/blob/main/factors.png?raw=true)
 
 ## Algorithm Complexities
 
