@@ -26,6 +26,7 @@ These heuristic values represent the estimated distances from each node to the g
 
 
 
+
 ## Step-by-Step Explanation
 
 1. **Initialization**
