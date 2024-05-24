@@ -14,6 +14,7 @@ def bfs_recursive(graph, start, goal, visited=None, queue=None):
     # if the node is not visited add it to the visited set
     if node not in visited:
         visited.add(node)
+        # expand the node and add the neighbors to the queue
         for neighbor in graph[node]:
             if neighbor not in visited:
                 queue.append((neighbor, path + [neighbor]))
